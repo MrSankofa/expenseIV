@@ -1,8 +1,7 @@
 package com.example.expenseIV;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "expenses")
@@ -16,22 +15,39 @@ public class Expense {
   private String name;
 
   @Column(nullable = false)
-  private BigDecimal amount;
+  private double amount;
 
   @Column(nullable = false)
-  private LocalDate dateDue;
+  private int due;
 
   @Column(nullable = false)
   private String account;
 
+  @Column(nullable = false)
+  private String budget;
+
+  @Column(nullable = false)
+  private String budgetInitials;
+
   // Constructors, getters, and setters
 
-  public Expense(Long id, String name, BigDecimal amount, LocalDate dateDue, String account) {
-    this.id = id;
-    this.name = name;
-    this.amount = amount;
-    this.dateDue = dateDue;
-    this.account = account;
+  public String getBudget() {
+    return budget;
+  }
+
+  public void setBudget(String budget) {
+    this.budget = budget;
+  }
+
+  public String getBudgetInitials() {
+    return budgetInitials;
+  }
+
+  public void setBudgetInitials(String budgetInitials) {
+    this.budgetInitials = budgetInitials;
+  }
+
+  public Expense() {
   }
 
   public Long getId() {
@@ -50,20 +66,20 @@ public class Expense {
     this.name = name;
   }
 
-  public BigDecimal getAmount() {
+  public double getAmount() {
     return amount;
   }
 
-  public void setAmount(BigDecimal amount) {
+  public void setAmount(double amount) {
     this.amount = amount;
   }
 
-  public LocalDate getDateDue() {
-    return dateDue;
+  public int getDue() {
+    return due;
   }
 
-  public void setDateDue(LocalDate dateDue) {
-    this.dateDue = dateDue;
+  public void setDue(int dateDue) {
+    this.due = dateDue;
   }
 
   public String getAccount() {
